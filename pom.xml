@@ -154,14 +154,16 @@
             <artifactId>guava</artifactId>
             <version>18.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.kie.modules</groupId>
+            <artifactId>org-apache-commons-lang3</artifactId>
+            <version>6.4.0.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
