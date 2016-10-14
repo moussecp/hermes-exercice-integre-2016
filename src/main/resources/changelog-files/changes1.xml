@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet id="initialConfiguration" author="lorent" logicalFilePath="changes1.xml">
+		<createTable tableName="constant">
+			<column name="NAME" type="VARCHAR(45)">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CONSTANT" />
+			</column>
+			<column name="VALUE" type="VARCHAR(50)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<insert tableName="constant">
+			<column name="NAME" value="BOOTSTRAP_DATA_ALREADY_IMPORTED" />
+			<column name="VALUE" value="false" />
+		</insert>
+	</changeSet>
+	
+	<changeSet id="create-product-entity" author="lorent" logicalFilePath="changes1.xml">
+		<createTable tableName="product">
+			<column name="ID" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRODUCT_ID" />
+			</column>
+			<column name="LABEL" type="VARCHAR(50)">
+				<constraints nullable="false" unique="true" uniqueConstraintName="U_PRODUCT_LABEL"/>
+			</column>
+			<column name="DESCRIPTION" type="VARCHAR(255)">
+				<constraints nullable="true" />
+			</column>
+			<column name="PRICE" type="FLOAT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		
+		<sql>
+			ALTER TABLE product ADD CONSTRAINT CHK_PRODUCT_POSITIVE_PRICE CHECK (PRICE >= 0);
+		</sql>
+	</changeSet>
+	
+	<changeSet id="create-buyer-entity" author="lorent" logicalFilePath="changes1.xml">
+		<createTable tableName="buyer">
+			<column name="ID" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_BUYER_ID" />
+			</column>
+			<column name="FIRST_NAME" type="VARCHAR(40)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_NAME" type="VARCHAR(40)">
+				<constraints nullable="false" />
+			</column>
+			<column name="BIRTH_LOCATION" type="VARCHAR(50)">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	
+	<changeSet id="create-truncateAllTables-procedure" author="lorent" failOnError="false" logicalFilePath="changes1.xml">
+		<sql>
+			DROP PROCEDURE IF EXISTS truncateAllDatabase;
+		</sql>
+		
+		<createProcedure>
+			CREATE PROCEDURE `truncateAllDatabase` ()
+			BEGIN
+				DELETE FROM product;
+    			DELETE FROM buyer;
+			END
+		</createProcedure>
+	</changeSet>
+	
+	
+
+</databaseChangeLog>

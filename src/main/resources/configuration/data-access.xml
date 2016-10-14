@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:jee="http://www.springframework.org/schema/jee"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.hermes_ecs.java_exercise.domain"/>
+	<tx:annotation-driven/>
+
+	<!-- Environment property 'wattoCashier.isProduction' defines which data source to use -->
+	<bean id="isProduction" class="java.lang.Boolean">
+		<constructor-arg value="#{systemProperties['wattoCashier.isProduction'] ?: false }" />
+	</bean>
+
+	<jee:jndi-lookup jndi-name="#{isProduction ? 'jdbc/wattoCashierRemoteDS' : 'jdbc/wattoCashierLocalDS'}" id="dataSource" />
+
+	<bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase"
+		  p:dataSource-ref="dataSource"
+		  p:changeLog="classpath:changelog-files/changelog.xml"/>
+
+	<bean id="entityManagerFactory"
+		  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		  depends-on="liquibase"
+		  p:packagesToScan="com.hermes_ecs.java_exercise.domain"
+		  p:dataSource-ref="dataSource"
+		  p:persistenceUnitName="wattoCashier">
+	</bean>
+
+	<bean id="transactionManager"
+		  class="org.springframework.orm.jpa.JpaTransactionManager"
+		  p:entityManagerFactory-ref="entityManagerFactory"/>
+</beans>
