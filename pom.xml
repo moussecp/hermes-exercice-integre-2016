@@ -160,9 +160,9 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.kie.modules</groupId>
-            <artifactId>org-apache-commons-lang3</artifactId>
-            <version>6.4.0.Final</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
         </dependency>
     </dependencies>
 
@@ -205,17 +205,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                    <wtpmanifest>true</wtpmanifest>
-                    <wtpapplicationxml>true</wtpapplicationxml>
-                    <wtpversion>2.0</wtpversion>
-                </configuration>
             </plugin>
         </plugins>
     </build>
