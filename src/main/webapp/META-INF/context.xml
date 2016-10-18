@@ -11,14 +11,14 @@
               maxIdle="1"
               maxWait="60000"
             />
-            
-	<Resource name="jdbc/wattoCashierLocalDS"
+
+    <Resource name="jdbc/wattoCashierLocalDS"
               auth="Container"
               type="javax.sql.DataSource"
-              username="${connection.login}"
-              password="${connection.password}"
-              driverClass="${jdbc.driver}"
-              url="${jdbc.url}"
+              username="ybruyninckx"
+              password="ybruyninckx"
+              driverClassName="oracle.jdbc.driver.OracleDriver"
+              url="jdbc:oracle:thin:@172.20.2.81:1521/XE"
               maxActive="8"
               maxIdle="1"
               maxWait="60000"
