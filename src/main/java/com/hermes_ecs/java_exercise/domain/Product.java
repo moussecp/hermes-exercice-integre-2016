@@ -13,10 +13,11 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Product implements Identifiable<Long> {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="PRODUCT_SEQ_GEN")
+	@SequenceGenerator(name="PRODUCT_SEQ_GEN", sequenceName="PRODUCT_SEQ", allocationSize=20)
 	private Long id;
 	
-	@Column(nullable=false, unique=true)
+	@Column(nullable=false)
 	private String label;
 
 	private String description;

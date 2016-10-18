@@ -4,7 +4,9 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
+
 	<changeSet id="initialConfiguration" author="lorent" logicalFilePath="changes1.xml">
+		<createSequence sequenceName="CONSTANT_SEQ"/>
 		<createTable tableName="constant">
 			<column name="NAME" type="VARCHAR(45)">
 				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CONSTANT" />
@@ -20,12 +22,13 @@
 	</changeSet>
 	
 	<changeSet id="create-product-entity" author="lorent" logicalFilePath="changes1.xml">
+		<createSequence sequenceName="PRODUCT_SEQ"/>
 		<createTable tableName="product">
 			<column name="ID" type="BIGINT" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRODUCT_ID" />
 			</column>
-			<column name="LABEL" type="VARCHAR(50)">
-				<constraints nullable="false" unique="true" uniqueConstraintName="U_PRODUCT_LABEL"/>
+			<column name="LABEL" type="VARCHAR(255)">
+				<constraints nullable="false" uniqueConstraintName="U_PRODUCT_LABEL"/>
 			</column>
 			<column name="DESCRIPTION" type="VARCHAR(255)">
 				<constraints nullable="true" />
@@ -41,6 +44,7 @@
 	</changeSet>
 	
 	<changeSet id="create-buyer-entity" author="lorent" logicalFilePath="changes1.xml">
+		<createSequence sequenceName="BUYER_SEQ"/>
 		<createTable tableName="buyer">
 			<column name="ID" type="BIGINT" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_BUYER_ID" />
@@ -58,19 +62,19 @@
 	</changeSet>
 	
 	
-	<changeSet id="create-truncateAllTables-procedure" author="lorent" failOnError="false" logicalFilePath="changes1.xml">
-		<sql>
-			DROP PROCEDURE IF EXISTS truncateAllDatabase;
-		</sql>
-		
-		<createProcedure>
-			CREATE PROCEDURE `truncateAllDatabase` ()
-			BEGIN
-				DELETE FROM product;
-    			DELETE FROM buyer;
-			END
-		</createProcedure>
-	</changeSet>
+	<!--<changeSet id="create-truncateAllTables-procedure" author="lorent" failOnError="false" logicalFilePath="changes1.xml">-->
+		<!--<sql>-->
+			<!--DROP PROCEDURE IF EXISTS truncateAllDatabase;-->
+		<!--</sql>-->
+		<!---->
+		<!--<createProcedure>-->
+			<!--CREATE PROCEDURE 'truncateAllDatabase' ()-->
+			<!--BEGIN-->
+				<!--DELETE FROM product;-->
+    			<!--DELETE FROM buyer;-->
+			<!--END;-->
+		<!--</createProcedure>-->
+	<!--</changeSet>-->
 	
 	
 

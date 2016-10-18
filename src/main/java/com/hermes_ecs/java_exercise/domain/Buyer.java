@@ -2,11 +2,7 @@ package com.hermes_ecs.java_exercise.domain;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -17,7 +13,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Buyer implements Identifiable<Long> {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="BUYER_SEQ_GEN")
+	@SequenceGenerator(name="BUYER_SEQ_GEN", sequenceName="BUYER_SEQ", allocationSize=20)
 	private Long id;
 	
 	@Column(name = "FIRST_NAME", nullable=false)
