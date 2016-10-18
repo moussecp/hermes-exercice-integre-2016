@@ -5,8 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.hermes_ecs.java_exercise.domain.Buyer;
 
 public class BuyerJpaDaoTest extends AbstractJpaDaoTest<Long, Buyer> {
-    
-    private BuyerDao buyerDao = new BuyerDao();
+
+    @Autowired
+    private BuyerDao buyerDao;
 
     @Override
     protected BuyerDao getDao() {

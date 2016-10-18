@@ -1,6 +1,7 @@
 package com.hermes_ecs.java_exercise.controller.validation;
 
 import com.hermes_ecs.java_exercise.controller.dto.ProductForm;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -34,6 +35,7 @@ public class ProductFormValidatorParameterizedTest {
     @Parameterized.Parameter(2)
     public int expectedErrorCount;
 
+    @Ignore
     @Test
     public void validate() {
         // given

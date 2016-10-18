@@ -2,18 +2,13 @@ package com.hermes_ecs.java_exercise.domain;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+@Entity
 @Table(name="PRODUCT")
 public class Product implements Identifiable<Long> {
 

@@ -15,7 +15,7 @@ public class Constant implements Identifiable<ConstantKey> {
 
 	@Id
 	@Enumerated(EnumType.STRING)
-	@Column("NAME") // "key" is a reserved word in MySQL
+	@Column(name = "NAME") // "key" is a reserved word in MySQL
 	private ConstantKey key;
 
 	private String value;

@@ -23,7 +23,7 @@ import java.util.NoSuchElementException;
 @Controller
 @RequestMapping("/buyers")
 @Transactional(readOnly = true)
-public static class BuyerController {
+public class BuyerController {
 
     static final String BUYER_MODEL_ATTRIBUTE = "buyer";
     static final String SUCCESS_MESSAGE_ATTRIBUTE = "successMessage";
