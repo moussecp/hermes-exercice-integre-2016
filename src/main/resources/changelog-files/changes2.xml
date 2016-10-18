@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet id="loadProductsFromCSV" author="yannick" logicalFilePath="changes2.xml">
+    <changeSet id="loadProducts" author="yannick" logicalFilePath="changes2.xml">
         <sql splitStatements="true">
             insert into PRODUCT(ID, LABEL,DESCRIPTION,PRICE) values(PRODUCT_SEQ.nextval,'Blaster [Carbine]','Blaster carbine','900');
             insert into PRODUCT(ID, LABEL,DESCRIPTION,PRICE) values(PRODUCT_SEQ.nextval,'Baktoid Armor Workshop E-5','Blaster carbine E-5','900');
@@ -920,7 +920,23 @@
             insert into PRODUCT(ID, LABEL,DESCRIPTION,PRICE) values(PRODUCT_SEQ.nextval,'Wheeled Mining Digger (Sandcrawler)','150000','60000');
             insert into PRODUCT(ID, LABEL,DESCRIPTION,PRICE) values(PRODUCT_SEQ.nextval,'Wheeled A5 Juggernaut HAV','200000','120000');
             insert into PRODUCT(ID, LABEL,DESCRIPTION,PRICE) values(PRODUCT_SEQ.nextval,'ZZCustom','','10');
-
         </sql>
     </changeSet>
+
+    <changeSet id="loadBuyers" author="yannick" logicalFilePath="changes2.xml">
+        <sql splitStatements="true">
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Gial','Ackbar (Admiral)','Mon Cala');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Biggs','Darklighter','Tatooine');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Ask','Aak','Malastare');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Bazine','Netal','Chaaktil');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Count','Dooku','Serenno');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Luminara','Unduli','Mirial');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Mon','Mothma','Chandrila');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Razoo','Qin-Fee','Nar Kanji');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Shaak','Ti','Shili');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Taun','We','Kamino');
+            insert into BUYER(ID, FIRST_NAME, LAST_NAME, BIRTH_LOCATION) values(BUYER_SEQ.nextval,'Wedge','Antilles','Corellia');
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
