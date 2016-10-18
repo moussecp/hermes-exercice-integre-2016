@@ -14,10 +14,10 @@
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-          p:driverClassName="org.h2.Driver"
-          p:url="jdbc:h2:mem:trainer;DB_CLOSE_DELAY=-1"
-          p:username="sa"
-          p:password="" />
+          p:driverClassName="${jdbc.driver}"
+          p:url="${jdbc.url}"
+          p:username="${connection.login}"
+          p:password="${connection.password}" />
 
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase"
           p:dataSource-ref="dataSource"
