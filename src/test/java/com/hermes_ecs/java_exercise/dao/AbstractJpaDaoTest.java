@@ -18,7 +18,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:configuration/beans.xml")
+@ContextConfiguration("/configuration/beans.xml")
 @TransactionConfiguration
 @Transactional
 public abstract class AbstractJpaDaoTest<I, T extends Identifiable<I>> {
@@ -89,4 +89,6 @@ public abstract class AbstractJpaDaoTest<I, T extends Identifiable<I>> {
     protected abstract T buildItem(int i);
 
     protected abstract Dao<I, T> getDao();
+
+    //TODO to remove
 }
