@@ -14,12 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/configuration/beans.xml")
-@TransactionConfiguration
+@ContextConfiguration(locations = {
+        "/configuration/beans.xml",
+        "/configuration/data-access-test.xml"
+})
 @Transactional
 public abstract class AbstractJpaDaoTest<I, T extends Identifiable<I>> {
     @PersistenceContext(unitName="wattoCashier")
@@ -89,6 +93,4 @@ public abstract class AbstractJpaDaoTest<I, T extends Identifiable<I>> {
     protected abstract T buildItem(int i);
 
     protected abstract Dao<I, T> getDao();
-
-    //TODO to remove
 }

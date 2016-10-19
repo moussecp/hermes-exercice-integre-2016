@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-    <Resource name="jdbc/wattoCashierRemoteDS"
-              auth="Container"
-              type="javax.sql.DataSource"
-              username="teami"
-              password="vM9ehEh6fzruGFde"
-              driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://172.20.2.19:3306/teami"
-              maxActive="8"
-              maxIdle="1"
-              maxWait="60000"
-            />
-
     <Resource name="jdbc/wattoCashierLocalDS"
               auth="Container"
               type="javax.sql.DataSource"
-              username="ybruyninckx"
-              password="ybruyninckx"
+              username="glince"
+              password="glince"
               driverClassName="oracle.jdbc.driver.OracleDriver"
-              url="jdbc:oracle:thin:@172.20.2.81:1521/XE"
+              url="jdbc:oracle:thin:@localhost:1521/XE"
               maxActive="8"
               maxIdle="1"
               maxWait="60000"

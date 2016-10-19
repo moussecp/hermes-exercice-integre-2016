@@ -40,12 +40,13 @@
         <m2e.cdi.activation>false</m2e.cdi.activation>
 
         <!-- Database -->
-        <liquibase.contexts>test</liquibase.contexts>
+        <!--TODO note that we have the config here also-->
+        <!--<liquibase.contexts>test</liquibase.contexts>-->
         <jdbc.driver>oracle.jdbc.driver.OracleDriver</jdbc.driver>
-        <connection.login>ybruyninckx</connection.login>
-        <connection.password>ybruyninckx</connection.password>
-        <connection.host>172.20.2.81</connection.host>
-        <jdbc.url>jdbc:oracle:thin:@172.20.2.81:1521/XE</jdbc.url>
+        <connection.login>glince</connection.login>
+        <connection.password>glince</connection.password>
+        <connection.host>127.0.0.1</connection.host>
+        <jdbc.url>jdbc:oracle:thin:@127.0.0.1:1521/XE</jdbc.url>
     </properties>
 
     <dependencies>

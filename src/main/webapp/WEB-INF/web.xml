@@ -54,11 +54,6 @@
         <servlet-name>contextConfiguration</servlet-name>
     </filter-mapping>
 	<resource-ref>
-		<res-ref-name>jdbc/wattoCashierRemoteDS</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-	</resource-ref>
-	<resource-ref>
 		<res-ref-name>jdbc/wattoCashierLocalDS</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
