@@ -15,9 +15,9 @@
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
           p:driverClassName="oracle.jdbc.driver.OracleDriver"
-          p:url="jdbc:oracle:thin:@localhost:1521/XE"
-          p:username="glince"
-          p:password="glince" />
+          p:url="${jdbc.url}"
+          p:username="${connection.login}"
+          p:password="${connection.password}" />
 
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase"
           p:dataSource-ref="dataSource"

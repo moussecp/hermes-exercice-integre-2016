@@ -14,7 +14,12 @@
 	<context:component-scan base-package="com.hermes_ecs.java_exercise.domain"/>
 	<tx:annotation-driven/>
 
-	<jee:jndi-lookup jndi-name="jdbc/wattoCashierLocalDS" id="dataSource" />
+	<bean id="dataSource"
+		  class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		  p:driverClassName="oracle.jdbc.driver.OracleDriver"
+		  p:url="${jdbc.url}"
+		  p:username="${connection.login}"
+		  p:password="${connection.password}" />
 
 	<bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase"
 		  p:dataSource-ref="dataSource"
