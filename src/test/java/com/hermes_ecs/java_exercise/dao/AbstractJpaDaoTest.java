@@ -22,7 +22,8 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "/configuration/beans.xml",
-        "/configuration/data-access-test.xml"
+        "/configuration/data-access-test.xml",
+        "/configuration/properties-config.xml"
 })
 @Transactional
 public abstract class AbstractJpaDaoTest<I, T extends Identifiable<I>> {

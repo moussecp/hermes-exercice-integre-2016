@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="propertyPlaceholder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="localOverride" value="true"/>
+        <property name="locations">
+            <list>
+                <!--<value>classpath:AMConfig.properties</value>-->
+                <!--<value>classpath:configuration/common-configuration.properties</value>-->
+                <!--<value>classpath:configuration/authentication.properties</value>-->
+                <!--<value>classpath:configuration/extranet-configuration.properties</value>-->
+                <!--<value>classpath:configuration/intranet-configuration.properties</value>-->
+                <!--<value>classpath:configuration/batch-configuration.properties</value>-->
+                <!--<value>classpath:configuration/profiles/${env.name}.properties</value>-->
+                <!-- use for production environment-->
+                <value>classpath:dev.properties</value>
+                <!--<value>classpath:${env.name}-configuration.properties</value>-->
+                <!--<value>classpath:${env.name}-authentication.properties</value>-->
+                <!-- local properties -->
+                <!--<value>${extra.config.file}</value>-->
+            </list>
+        </property>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+    </bean>
+</beans>

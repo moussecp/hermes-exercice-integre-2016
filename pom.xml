@@ -29,23 +29,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <svn.project.name>watto-cashier-teamI</svn.project.name>
-        <sonar.language>java</sonar.language>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.branch>teamI</sonar.branch>
-
-        <!-- Eclipse facets -->
-        <m2e.jaxrs.activation>false</m2e.jaxrs.activation>
-        <m2e.jpa.activation>false</m2e.jpa.activation>
-        <m2e.jsf.activation>false</m2e.jsf.activation>
-        <m2e.cdi.activation>false</m2e.cdi.activation>
 
         <!-- Database -->
-        <!--TODO note that we have the config here also-->
-        <!--<liquibase.contexts>test</liquibase.contexts>-->
-        <jdbc.driver>oracle.jdbc.driver.OracleDriver</jdbc.driver>
         <connection.login>glince</connection.login>
         <connection.password>glince</connection.password>
-        <connection.host>127.0.0.1</connection.host>
         <jdbc.url>jdbc:oracle:thin:@127.0.0.1:1521/XE</jdbc.url>
     </properties>
 
@@ -53,6 +40,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -217,21 +209,6 @@
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.1.201405082137</version>
-                <executions>
-                    <!-- <execution> <id>pre-test</id> <goals> <goal>prepare-agent</goal>
-                        </goals> </execution> -->
-                    <execution>
-                        <id>pre-test-integration</id>
-                        <goals>
-                            <goal>prepare-agent-integration</goal>
                         </goals>
                     </execution>
                 </executions>
