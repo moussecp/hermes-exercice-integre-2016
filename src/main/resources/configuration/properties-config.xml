@@ -9,19 +9,7 @@
         <property name="localOverride" value="true"/>
         <property name="locations">
             <list>
-                <!--<value>classpath:AMConfig.properties</value>-->
-                <!--<value>classpath:configuration/common-configuration.properties</value>-->
-                <!--<value>classpath:configuration/authentication.properties</value>-->
-                <!--<value>classpath:configuration/extranet-configuration.properties</value>-->
-                <!--<value>classpath:configuration/intranet-configuration.properties</value>-->
-                <!--<value>classpath:configuration/batch-configuration.properties</value>-->
-                <!--<value>classpath:configuration/profiles/${env.name}.properties</value>-->
-                <!-- use for production environment-->
                 <value>classpath:dev.properties</value>
-                <!--<value>classpath:${env.name}-configuration.properties</value>-->
-                <!--<value>classpath:${env.name}-authentication.properties</value>-->
-                <!-- local properties -->
-                <!--<value>${extra.config.file}</value>-->
             </list>
         </property>
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
