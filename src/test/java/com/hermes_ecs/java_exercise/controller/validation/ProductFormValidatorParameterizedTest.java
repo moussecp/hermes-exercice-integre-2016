@@ -35,7 +35,6 @@ public class ProductFormValidatorParameterizedTest {
     @Parameterized.Parameter(2)
     public int expectedErrorCount;
 
-    @Ignore
     @Test
     public void validate() {
         // given

@@ -19,7 +19,7 @@ public class ProductFormValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "label", "label.required");
 		ValidationUtils.rejectIfEmpty(errors, "price", "price.required");
 
-		if (errors.hasErrors()) {
+		if (!errors.hasErrors()) {
             final String price = (String) errors.getFieldValue("price");
             if (!RepublicDactaryAmount.isValid(price)) {
                 errors.rejectValue("price", "price.invalid");
